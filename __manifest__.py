@@ -2,16 +2,12 @@
 {
     'name': "School",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """ทดสอบเขียน Module""",
 
-    'description': """
-        Long description of module's purpose
-    """,
+    'description': """ทดสอบเขียน Module""",
     'license': 'Other OSI approved licence',
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "Taweechai Yuenyang",
+    'website': "https://abe27.github.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
