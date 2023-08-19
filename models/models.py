@@ -18,7 +18,8 @@ class SchoolProfile(models.Model):
     status = fields.Selection([('S', 'โสด'), ('M', 'สมรส'), ('N', 'ไม่เระบุ')], string="Status", help="สถานะภาพ", default="N")
     documents = fields.Binary(string="Documents", help="เอกสารประกอบ")
     document_name = fields.Char(string="Document Name")
-    avatar_image = fields.Image(string="Avatar", max_width="300", max_height="300")
+    avatar_image = fields.Image(string="Avatar")
+    profile_description = fields.Html(string="Profile Description")
     is_active = fields.Boolean("Is Active", default=False)
     uuid_key = fields.Char(size=36,readonly=True, default=str(uuid.uuid4()))
 

@@ -61,6 +61,9 @@
                         <group>
                             <field name="avatar_image" widget="image" string="รูปประจำตัว"/>
                         </group>
+                        <group>
+                            <field name="profile_description" widget="html" string="หมายเหตุ"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
