@@ -1,80 +1,83 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+        <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="school_list_view">
-      <field name="name">school list</field>
-      <field name="model">school.profile</field>
-      <field name="arch" type="xml">
-        <tree>
-          <!-- <field name="uuid_key" string="เลขที่เอกสาร" /> -->
-          <field name="first_name" string="ชื่อ"/>
-          <field name="last_name" string="สกุล"/>
-          <field name="birth_date" string="วดป.เกิด"/>
-          <field name="email" string="อีเมล์"/>
-          <!-- <field name="phone" string="หมายเลขโทรศัพท์"/> -->
-          <!-- <field name="address" string="ที่อยู่"/> -->
-          <field name="status" string="สถานะภาพ" />
-          <field name="is_active" string="สถานะ" />
-        </tree>
-      </field>
-    </record>
+        <record model="ir.ui.view" id="school_list_view">
+            <field name="name">school list</field>
+            <field name="model">school.profile</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- <field name="uuid_key" string="เลขที่เอกสาร" /> -->
+                    <field name="first_name" string="ชื่อ"/>
+                    <field name="last_name" string="สกุล"/>
+                    <field name="birth_date" string="วดป.เกิด"/>
+                    <field name="email" string="อีเมล์"/>
+                    <!-- <field name="phone" string="หมายเลขโทรศัพท์"/> -->
+                    <!-- <field name="address" string="ที่อยู่"/> -->
+                    <field name="status" string="สถานะภาพ" />
+                    <field name="is_active" string="สถานะ" />
+                </tree>
+            </field>
+        </record>
 
-    <record model="ir.ui.view" id="school_form_view">
-      <field name="name">school form</field>
-      <field name="model">school.profile</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group string="ข้อมูลทั่วไป">
-              <group>
-                <field name="first_name" string="ชื่อ" placeholder="ระบุชื่อ"/>
-              </group>
-              <group>
-                <field name="last_name" string="สกุล" placeholder="ระบุสกุล"/>
-              </group>
-              <group>
-                <field name="birth_date" string="วดป.เกิด" placeholder="ระบุวดป.เกิด"/>
-              </group>
-            </group>
-            <group string="ที่อยู่">
-              <field name="address" string="ที่อยู่" placeholder="ระบุที่อยู่"/>
-            </group>
-            <group string="ข้อมูลเพิ่มเติม">
-              <group>
-                <field name="email" string="อีเมล์" required="1" placeholder="abc@abc.com"/>
-              </group>
-              <group>
-                <field name="phone" string="หมายเลขโทรศัพท์" placeholder="หมายเลขโทรศัพท์"/>
-              </group>
-              <group>
-                <field type="checkbox" string="สถานะ" name="is_active" />
-              </group>
-              <group>
-                <field name="status" string="สถานะภาพ" placeholder="ระบุสถานะภาพ" required="1" />
-              </group>
-            </group>
-            <group string="เอกสารประกอบ">
-                <field name="documents" string="อัพโหลดเอกสาร" filename="document_name" />
-                <field name="document_name" invisible="1"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="action_school_profile">
-      <field name="name">School Profile</field>
-      <field name="res_model">school.profile</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+        <record model="ir.ui.view" id="school_form_view">
+            <field name="name">school form</field>
+            <field name="model">school.profile</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string="ข้อมูลทั่วไป">
+                            <group>
+                                <field name="first_name" string="ชื่อ" placeholder="ระบุชื่อ"/>
+                            </group>
+                            <group>
+                                <field name="last_name" string="สกุล" placeholder="ระบุสกุล"/>
+                            </group>
+                            <group>
+                                <field name="birth_date" string="วดป.เกิด" placeholder="ระบุวดป.เกิด"/>
+                            </group>
+                        </group>
+                        <group string="ที่อยู่">
+                            <field name="address" string="ที่อยู่" placeholder="ระบุที่อยู่"/>
+                        </group>
+                        <group string="ข้อมูลเพิ่มเติม">
+                            <group>
+                                <field name="email" string="อีเมล์" required="1" placeholder="abc@abc.com"/>
+                            </group>
+                            <group>
+                                <field name="phone" string="หมายเลขโทรศัพท์" placeholder="หมายเลขโทรศัพท์"/>
+                            </group>
+                            <group>
+                                <field type="checkbox" string="สถานะ" name="is_active" />
+                            </group>
+                            <group>
+                                <field name="status" string="สถานะภาพ" placeholder="ระบุสถานะภาพ" required="1" />
+                            </group>
+                        </group>
+                        <group string="เอกสารประกอบ">
+                            <field name="documents" string="อัพโหลดเอกสาร" filename="document_name" />
+                            <field name="document_name" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="avatar_image" widget="image" string="รูปประจำตัว"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
 
-    <!-- server action to the one above -->
-    <!--
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="action_school_profile">
+            <field name="name">School Profile</field>
+            <field name="res_model">school.profile</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
     <record model="ir.actions.server" id="school.action_server">
       <field name="name">school server</field>
       <field name="model_id" ref="model_school_school"/>
@@ -89,21 +92,21 @@
     </record>
 -->
 
-    <!-- Top menu item -->
+        <!-- Top menu item -->
 
-    <menuitem name="School" id="school_root_menu"/>
+        <menuitem name="School" id="school_root_menu"/>
 
-    <!-- menu categories -->
+        <!-- menu categories -->
 
-    <menuitem name="Sub Menu 1" id="school_sub_menu_1" parent="school_root_menu"/>
-    <menuitem name="Sub Menu 2" id="school_sub_menu_2" parent="school_root_menu"/>
+        <menuitem name="Sub Menu 1" id="school_sub_menu_1" parent="school_root_menu"/>
+        <menuitem name="Sub Menu 2" id="school_sub_menu_2" parent="school_root_menu"/>
 
-    <!-- actions -->
+        <!-- actions -->
 
-    <menuitem id="school_profile_menu" name="Profile" sequence="10" parent="school_sub_menu_1" action="action_school_profile"/>
-    <!--
+        <menuitem id="school_profile_menu" name="Profile" sequence="10" parent="school_sub_menu_1" action="action_school_profile"/>
+        <!--
     <menuitem name="List" id="school.menu_1_list" parent="school.menu_1" action="school.action_window"/>
     <menuitem name="Server to list" id="school" parent="school.menu_2" action="school.action_server"/>
 -->
-  </data>
+    </data>
 </odoo>

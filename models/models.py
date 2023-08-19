@@ -2,6 +2,7 @@
 
 import uuid
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class SchoolProfile(models.Model):
@@ -17,6 +18,7 @@ class SchoolProfile(models.Model):
     status = fields.Selection([('S', 'โสด'), ('M', 'สมรส'), ('N', 'ไม่เระบุ')], string="Status", help="สถานะภาพ", default="N")
     documents = fields.Binary(string="Documents", help="เอกสารประกอบ")
     document_name = fields.Char(string="Document Name")
+    avatar_image = fields.Image(string="Avatar", max_width="300", max_height="300")
     is_active = fields.Boolean("Is Active", default=False)
     uuid_key = fields.Char(size=36,readonly=True, default=str(uuid.uuid4()))
 
@@ -24,3 +26,12 @@ class SchoolProfile(models.Model):
     # def _value_pc(self):
     #     for record in self:
     #         record.value2 = float(record.value) / 100
+
+    @api.constrains('email')
+    def _check_registration_no(self):
+        for rec in self:
+            domain = [('email', '=', rec.email)]
+            count = self.sudo().search_count(domain)
+            
+            if count > 1:
+                raise ValidationError(("The Email should be unique"))
