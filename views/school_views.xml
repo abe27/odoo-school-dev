@@ -7,13 +7,14 @@
       <field name="model">school.profile</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="uuid_key" string="เลขที่เอกสาร" />
+          <!-- <field name="uuid_key" string="เลขที่เอกสาร" /> -->
           <field name="first_name" string="ชื่อ"/>
           <field name="last_name" string="สกุล"/>
           <field name="birth_date" string="วดป.เกิด"/>
           <field name="email" string="อีเมล์"/>
-          <field name="phone" string="หมายเลขโทรศัพท์"/>
-          <field name="address" string="ที่อยู่"/>
+          <!-- <field name="phone" string="หมายเลขโทรศัพท์"/> -->
+          <!-- <field name="address" string="ที่อยู่"/> -->
+          <field name="status" string="สถานะภาพ" />
           <field name="is_active" string="สถานะ" />
         </tree>
       </field>
@@ -37,9 +38,7 @@
               </group>
             </group>
             <group string="ที่อยู่">
-              <group>
-                <field name="address" string="ที่อยู่" placeholder="ระบุที่อยู่"/>
-              </group>
+              <field name="address" string="ที่อยู่" placeholder="ระบุที่อยู่"/>
             </group>
             <group string="ข้อมูลเพิ่มเติม">
               <group>
@@ -50,6 +49,9 @@
               </group>
               <group>
                 <field type="checkbox" string="สถานะ" name="is_active" />
+              </group>
+              <group>
+                <field name="status" string="สถานะภาพ" placeholder="ระบุสถานะภาพ" />
               </group>
             </group>
           </sheet>

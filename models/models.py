@@ -14,6 +14,7 @@ class SchoolProfile(models.Model):
     email = fields.Char(index=True, string="Email Address", required=True)
     phone = fields.Char(string="Phone", default="-", help="ระบุหมายเลขโทรศัพท์")
     address = fields.Text(string="Address", default="-", help="ระบุที่อยู่")
+    status = fields.Selection([('S', 'โสด'), ('M', 'สมรส'), ('N', 'ไม่เระบุ')], string="Status", help="สถานะภาพ", default="N")
     is_active = fields.Boolean("Is Active", default=False)
     uuid_key = fields.Char(size=36,readonly=True, default=str(uuid.uuid4()))
 
