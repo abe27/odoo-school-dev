@@ -51,8 +51,12 @@
                 <field type="checkbox" string="สถานะ" name="is_active" />
               </group>
               <group>
-                <field name="status" string="สถานะภาพ" placeholder="ระบุสถานะภาพ" />
+                <field name="status" string="สถานะภาพ" placeholder="ระบุสถานะภาพ" required="1" />
               </group>
+            </group>
+            <group string="เอกสารประกอบ">
+                <field name="documents" string="อัพโหลดเอกสาร" filename="document_name" />
+                <field name="document_name" invisible="1"/>
             </group>
           </sheet>
         </form>

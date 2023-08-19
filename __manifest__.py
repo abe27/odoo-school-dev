@@ -9,7 +9,7 @@
     'description': """
         Long description of module's purpose
     """,
-
+    'license': 'Other OSI approved licence',
     'author': "My Company",
     'website': "https://www.yourcompany.com",
 
